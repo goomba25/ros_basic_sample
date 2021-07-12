@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
+#include <sstream>
 
 int main(int argc, char **argv)
 {
@@ -12,9 +13,14 @@ int main(int argc, char **argv)
 
   ros::Rate loop_rate(10); //  Hz
 
+  int count = 0;
   while (ros::ok()) {
     std_msgs::String msg;
-    msg.data = "Topic";
+
+    std::stringstream ss;
+    ss << "Topic" << count;
+
+    msg.data = ss.str();
 
     ROS_INFO(msg.data.c_str());
 
@@ -22,6 +28,8 @@ int main(int argc, char **argv)
 
     ros::spinOnce();
     loop_rate.sleep();
+
+    count++;
   }
 
   ROS_INFO("ROS Publisher Sample Close");
