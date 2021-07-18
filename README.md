@@ -12,3 +12,5 @@ ROS 튜토리얼 및 간단한 형식입니다. (사용 버전은 ROS kinetic - 
 ## list
 
 * node sample
+* publish topic sample
+* subscribe topic sample
